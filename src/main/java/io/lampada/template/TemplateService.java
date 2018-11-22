@@ -1,5 +1,7 @@
 package io.lampada.template;
 
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /*
@@ -11,9 +13,28 @@ This should NOT return with any ResponseEntity's.
 
 @Service
 public class TemplateService {
-    TemplateRepository templateRepository;
+
+    @Autowired
+    private TemplateRepository templateRepository;
 
     public TemplateService() {
-        templateRepository = new TemplateRepository();
+
+    }
+
+    public Template saveTemplate(int id, Template templateToAdd) {
+        templateRepository.saveTemplate(id, templateToAdd);
+        return templateToAdd;
+    }
+
+    public Template getById(int id) {
+        return templateRepository.getById(id);
+    }
+
+    public List<Template> getAll() {
+        return templateRepository.getAll();
+    }
+
+    public int getSizeOfRepository() {
+        return templateRepository.getSizeOfRepository();
     }
 }

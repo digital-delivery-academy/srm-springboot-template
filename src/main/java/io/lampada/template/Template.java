@@ -11,4 +11,18 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Template {
+
+    private int exampleId;
+
+    Template() {
+
+    }
+
+    public Integer getExampleId() {
+        return exampleId;
+    }
+
+    public void setExampleId(int exampleId) {
+        this.exampleId = exampleId;
+    }
 }

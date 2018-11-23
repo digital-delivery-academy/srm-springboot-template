@@ -18,11 +18,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 public class TemplateControllerTests {
 
-    @LocalServerPort
-    private int port;
-
     @Autowired
     private TestRestTemplate restTemplate;
+
+    @LocalServerPort
+    private int port;
 
     @Test
     public void getShouldReturnNotImplemented() throws Exception {
@@ -39,6 +39,8 @@ public class TemplateControllerTests {
         Assert.assertEquals(response.getStatusCode(), HttpStatus.NOT_IMPLEMENTED);
         
         /*
+        Sample code where POST creates from a bean and returns a URI:
+
         HttpEntity<Foo> request = new HttpEntity<>(new Foo("bar"));
         URI location = restTemplate.postForLocation(fooResourceUrl, request);
         assertThat(location, notNullValue());

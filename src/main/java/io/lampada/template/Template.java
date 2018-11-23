@@ -15,7 +15,6 @@ public class Template {
     private int exampleId;
 
     Template() {
-
     }
 
     public Integer getExampleId() {

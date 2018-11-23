@@ -22,7 +22,6 @@ public class TemplateController {
     TemplateService templateService;
 
     public TemplateController() {
-
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)

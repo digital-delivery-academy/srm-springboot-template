@@ -1,5 +1,5 @@
 # srm-template
-`Travis Report` `Codacity Quality Report` `Codacy Coverage Report`
+[![Build Status](https://travis-ci.com/digital-delivery-academy/srm-springboot-template.svg?token=xvGAAFxX7Kq22jyoY92y&branch=master)](https://travis-ci.com/digital-delivery-academy/srm-springboot-template) `Codacity Quality Report` `Codacy Coverage Report`
 
 A general overview of what `srm-template` does and how it communicates with other micro-services (eg: JSON) and external API's 
 
@@ -67,17 +67,7 @@ POST / PUT Example JSON payload
 ```
 
 ### Health-Checks
-(Optional)
-
-Example health checks here
-`GET  /ping           #Returns Pong`
+N/A
 
 ### Database 
-(Optional)
-
-If you have a database add information here
-
-EG:
-The program creates a local database at location ~/people
-#### Manually accessing database
-If h2 console is enabled in application properties simply navigate to `localhost:8080/h2-console` and login with the set password and the database location `jdbc:h2:file:~/example`
+N/A

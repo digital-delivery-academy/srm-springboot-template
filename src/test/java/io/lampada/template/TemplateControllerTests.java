@@ -15,7 +15,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
-
 public class TemplateControllerTests {
 
     @Autowired
@@ -25,19 +24,32 @@ public class TemplateControllerTests {
     private int port;
 
     @Test
-    public void getShouldReturnNotImplemented() throws Exception {
-        ResponseEntity<String> response = this.restTemplate
-            .getForEntity("http://localhost:" + port + "/", String.class);
-        Assert.assertEquals(response.getStatusCode(), HttpStatus.NOT_IMPLEMENTED);
+    public void contextShouldLoad() {
+        Assert.assertNotEquals(restTemplate, null);
     }
 
     @Test
-    public void postShouldReturnNotImplemented() throws Exception {
+    public void getShouldReturnNotImplemented() {
+        ResponseEntity<String> response = this.restTemplate
+            .getForEntity("http://localhost:" + port + "/", String.class);
+
+        HttpStatus expected = response.getStatusCode();
+        HttpStatus actual = HttpStatus.NOT_IMPLEMENTED;
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void postShouldReturnNotImplemented() {
         HttpEntity<Template> request = new HttpEntity<>(new Template());
         ResponseEntity<String> response = this.restTemplate
             .postForEntity("http://localhost:" + port + "/", request, String.class);
-        Assert.assertEquals(response.getStatusCode(), HttpStatus.NOT_IMPLEMENTED);
-        
+
+        HttpStatus expected = response.getStatusCode();
+        HttpStatus actual = HttpStatus.NOT_IMPLEMENTED;
+
+        Assert.assertEquals(expected, actual);
+
         /*
         Sample code where POST creates from a bean and returns a URI:
 

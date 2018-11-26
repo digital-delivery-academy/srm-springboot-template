@@ -1,28 +1,22 @@
 package io.lampada.template;
 
 import java.util.List;
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
+@DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 public class TemplateServiceTests {
 
     @Autowired
     private TemplateService templateService;
-
-    @Autowired
-    private TemplateRepository templateRepository;
-
-    @After
-    public void tearDown() {
-        templateRepository.clearAll();
-    }
 
     @Test
     public void saveTemplateShouldIncreaseSizeOfRepositoryByOne() {

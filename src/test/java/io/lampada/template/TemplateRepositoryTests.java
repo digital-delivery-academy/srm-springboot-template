@@ -3,43 +3,22 @@ package io.lampada.template;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
+@DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 public class TemplateRepositoryTests {
 
     @Autowired
     private TemplateRepository templateRepository;
-
-    @After
-    public void tearDown() {
-        templateRepository.clearAll();
-    }
-
-    @Test
-    public void clearAllShouldClearAll() {
-        Template template1 = new Template();
-        Template template2 = new Template();
-
-        template1.setExampleId(1);
-        template2.setExampleId(2);
-
-        templateRepository.saveTemplate(1, template1);
-        templateRepository.saveTemplate(2, template2);
-        templateRepository.clearAll();
-
-        int expected = 0;
-        int actual = templateRepository.getSizeOfRepository();
-
-        Assert.assertEquals(expected, actual);
-    }
 
     @Test
     public void constructorShouldCreateEmptyHashmap() {

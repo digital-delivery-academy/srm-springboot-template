@@ -23,3 +23,26 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Gradle
+.gradle
+!gradle-wrapper.jar
+
+# Maven
+target
+
+# Build
+out
+build
+bin
+
+# Other
+*.log
+*.swp
+*.bak
+
+*.csv

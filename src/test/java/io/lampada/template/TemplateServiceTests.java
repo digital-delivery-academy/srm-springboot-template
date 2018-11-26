@@ -1,10 +1,8 @@
 package io.lampada.template;
 
-import java.lang.reflect.Field;
 import java.util.List;
 import org.junit.After;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,28 +16,12 @@ public class TemplateServiceTests {
     @Autowired
     private TemplateService templateService;
 
-    @Before
-    public void setUp() {
-        templateService = new TemplateService();
-        setPrivateField("templateRepository", templateService, new TemplateRepository());
-    }
+    @Autowired
+    private TemplateRepository templateRepository;
 
     @After
     public void tearDown() {
-        templateService = null;
-    }
-
-    public void setPrivateField(String name, Object obj, Object newValue) {
-        try {
-            Field field = obj.getClass().getDeclaredField(name);
-            field.setAccessible(true);
-            field.set(obj, newValue);
-            field.setAccessible(false);
-        } catch (NoSuchFieldException e) {
-            Assert.fail("Test error: NoSuchField exception");
-        } catch (IllegalAccessException e) {
-            Assert.fail("Test error: Refused access to the field");
-        }
+        templateRepository.clearAll();
     }
 
     @Test

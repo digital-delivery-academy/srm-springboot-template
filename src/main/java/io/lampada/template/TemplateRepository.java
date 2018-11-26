@@ -40,4 +40,8 @@ public class TemplateRepository {
         return templateMap.size();
     }
 
+    public void clearAll() {
+        templateMap.clear();
+    }
+
 }

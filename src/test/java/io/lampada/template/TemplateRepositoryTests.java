@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 import org.junit.After;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,14 +18,27 @@ public class TemplateRepositoryTests {
     @Autowired
     private TemplateRepository templateRepository;
 
-    @Before
-    public void setUp() {
-        templateRepository = new TemplateRepository();
-    }
-
     @After
     public void tearDown() {
-        templateRepository = null;
+        templateRepository.clearAll();
+    }
+
+    @Test
+    public void clearAllShouldClearAll() {
+        Template template1 = new Template();
+        Template template2 = new Template();
+
+        template1.setExampleId(1);
+        template2.setExampleId(2);
+
+        templateRepository.saveTemplate(1, template1);
+        templateRepository.saveTemplate(2, template2);
+        templateRepository.clearAll();
+
+        int expected = 0;
+        int actual = templateRepository.getSizeOfRepository();
+
+        Assert.assertEquals(expected, actual);
     }
 
     @Test

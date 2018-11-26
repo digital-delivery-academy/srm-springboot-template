@@ -29,9 +29,20 @@ public class TemplateControllerTests {
     }
 
     @Test
-    public void getShouldReturnNotImplemented() {
+    public void getRootShouldReturnNotImplemented() {
         ResponseEntity<String> response = this.restTemplate
             .getForEntity("http://localhost:" + port + "/", String.class);
+
+        HttpStatus expected = response.getStatusCode();
+        HttpStatus actual = HttpStatus.NOT_IMPLEMENTED;
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void getParameterShouldReturnNotImplemented() {
+        ResponseEntity<String> response = this.restTemplate
+            .getForEntity("http://localhost:" + port + "/1", String.class);
 
         HttpStatus expected = response.getStatusCode();
         HttpStatus actual = HttpStatus.NOT_IMPLEMENTED;

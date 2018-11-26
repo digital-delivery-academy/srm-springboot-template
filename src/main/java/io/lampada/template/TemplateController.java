@@ -26,17 +26,17 @@ public class TemplateController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ResponseEntity getAll() {
-        return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).body("GET Template");
+        return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).body("GET Template Root");
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public ResponseEntity create(@RequestBody Template postBody) {
-        return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).body("POST Template");
+        return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).body("POST Template Root");
     }
 
     @RequestMapping(value = "/{parameter}", method = RequestMethod.GET)
     public ResponseEntity getWithParameter(@PathVariable Object parameter) {
-        return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).body("GET Template");
+        return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).body("GET Template Parameter");
     }
 
 }

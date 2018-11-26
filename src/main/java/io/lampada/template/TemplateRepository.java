@@ -39,4 +39,5 @@ public class TemplateRepository {
     public int getSizeOfRepository() {
         return templateMap.size();
     }
+
 }

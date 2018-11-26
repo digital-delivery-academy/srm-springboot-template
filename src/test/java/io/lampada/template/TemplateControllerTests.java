@@ -46,4 +46,5 @@ public class TemplateControllerTests {
         assertThat(location, notNullValue());
         */
     }
+
 }

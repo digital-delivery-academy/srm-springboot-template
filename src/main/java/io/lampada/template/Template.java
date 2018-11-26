@@ -24,4 +24,5 @@ public class Template {
     public void setExampleId(int exampleId) {
         this.exampleId = exampleId;
     }
+
 }

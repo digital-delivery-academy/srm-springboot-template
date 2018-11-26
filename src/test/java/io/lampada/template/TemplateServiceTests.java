@@ -79,9 +79,7 @@ public class TemplateServiceTests {
 
         List<Template> actual = templateService.getAll();
 
-        if (actual.contains(testTemplate1) && actual.contains(testTemplate2)) {
-            //Automatic pass
-        } else {
+        if (!actual.contains(testTemplate1) || !actual.contains(testTemplate2)) {
             Assert.fail("Templates have not been found");
         }
     }
@@ -106,4 +104,5 @@ public class TemplateServiceTests {
         Template actual = templateService.getById(118118);
         Assert.assertEquals(expected, actual);
     }
+
 }

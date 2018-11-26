@@ -22,4 +22,5 @@ public class TemplateTests {
 
         Assert.assertEquals(expected, actual);
     }
+
 }

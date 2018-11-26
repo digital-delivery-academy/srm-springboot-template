@@ -38,4 +38,5 @@ public class TemplateController {
     public ResponseEntity getWithParameter(@PathVariable Object parameter) {
         return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).body("GET Template");
     }
+
 }

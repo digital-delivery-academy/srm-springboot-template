@@ -55,9 +55,7 @@ public class TemplateRepositoryTests {
 
         List<Template> actual = templateRepository.getAll();
 
-        if (actual.contains(testTemplate1) && actual.contains(testTemplate2)) {
-            //Automatic pass
-        } else {
+        if (!(actual.contains(testTemplate1) && actual.contains(testTemplate2))) {
             Assert.fail("Templates have not been found");
         }
     }
@@ -90,4 +88,5 @@ public class TemplateRepositoryTests {
         Template actual = templateRepository.getById(118118);
         Assert.assertEquals(expected, actual);
     }
+
 }

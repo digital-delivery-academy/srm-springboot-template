@@ -37,4 +37,5 @@ public class TemplateService {
     public int getSizeOfRepository() {
         return templateRepository.getSizeOfRepository();
     }
+
 }

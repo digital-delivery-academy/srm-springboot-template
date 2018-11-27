@@ -58,7 +58,7 @@ POST /     #Post a new example entity (look at #Schema for more information)
 
 ### Schema
 #### Template
-POST / PUT Example JSON payload
+POST Example JSON payload
 ```json
 {
   "exampleId" : 12

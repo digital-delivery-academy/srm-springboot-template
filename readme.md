@@ -1,7 +1,7 @@
 # srm-template
 [![Build Status](https://travis-ci.com/digital-delivery-academy/srm-springboot-template.svg?token=xvGAAFxX7Kq22jyoY92y&branch=master)](https://travis-ci.com/digital-delivery-academy/srm-springboot-template) `Codacity Quality Report` `Codacy Coverage Report`
 
-A general overview of what `srm-template` does and how it communicates with other micro-services (eg: JSON) and external API's 
+`srm-template` Gives a good example on how to structure microservices with SpringBoot and Maven, cohort 2 projects will use this as a baseline for microservices. To get a blank version of this readme look at the [srm-coding-styles](https://github.com/digital-delivery-academy/srm-code-style/) under the readme directory.
 
 ## Contents
    - [Getting Started](#getting-started)

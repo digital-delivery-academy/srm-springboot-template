@@ -58,7 +58,7 @@ POST /     #Post a new example entity (look at #Schema for more information)
 
 ### Schema
 Explain each entity in the program here, for this example there will only be the one, but for multiple you should add new sub-headers.
-#### Test
+#### Template payloads
 POST / PUT Example JSON payload
 ```json
 {

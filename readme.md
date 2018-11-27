@@ -49,7 +49,7 @@ A server should deploy to the port set in `Application.Properties`
 
 ## Usage
 ### Endpoints
-Add a list of all the endpoints here with explanations for each one, if you have multiple entities create new sub-headings.
+#### Template
 ```http request
 GET  /     #Get all example entities stored in the microservice in JSON
 GET  /12   #Get example by ID in JSON (12 in this example)
@@ -57,8 +57,7 @@ POST /     #Post a new example entity (look at #Schema for more information)
 ```
 
 ### Schema
-Explain each entity in the program here, for this example there will only be the one, but for multiple you should add new sub-headers.
-#### Template payloads
+#### Template
 POST / PUT Example JSON payload
 ```json
 {

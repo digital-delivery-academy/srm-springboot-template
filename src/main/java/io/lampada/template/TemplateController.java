@@ -26,12 +26,12 @@ public class TemplateController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ResponseEntity getAll() {
-        return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).body("GET Template Root");
+        return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).body("GET Template Top");
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public ResponseEntity create(@RequestBody Template postBody) {
-        return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).body("POST Template Root");
+        return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).body("POST Template Top");
     }
 
     @RequestMapping(value = "/{parameter}", method = RequestMethod.GET)

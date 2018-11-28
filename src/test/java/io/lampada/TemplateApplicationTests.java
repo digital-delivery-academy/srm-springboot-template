@@ -12,7 +12,8 @@ public class TemplateApplicationTests {
     @Test
     public void testMain() {
         TemplateApplication.main(new String[]{
-            // Should start Spring Boot, but should not run as a web-application and should not start an embedded web-server.
+            // Should start Spring Boot, but should not run as a web-application and should not
+            // start an embedded web-server.
             "--spring.main.web-application-type=NONE",
             "--spring.main.banner-mode=OFF"
         });

@@ -12,18 +12,20 @@
   <name>template</name>
   <description>Demo project for Spring Boot</description>
 
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <java.version>1.8</java.version>
+    <jacoco.version>0.8.2</jacoco.version>
+    <jacoco.complexity.minimum>90%</jacoco.complexity.minimum>
+  </properties>
+
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
     <version>2.1.0.RELEASE</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
-
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <java.version>1.8</java.version>
-  </properties>
 
   <dependencies>
     <dependency>
@@ -37,6 +39,10 @@
       <scope>test</scope>
     </dependency>
 
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
   </dependencies>
 
   <build>
@@ -49,14 +55,21 @@
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.8.2</version>
+        <version>${jacoco.version}</version>
         <executions>
+          <!--
+            Prepares a property pointing to the JaCoCo runtime agent, that can be passed as a VM
+            argument to the application under test.
+          -->
           <execution>
             <id>default-prepare-agent</id>
             <goals>
               <goal>prepare-agent</goal>
             </goals>
           </execution>
+          <!--
+            Creates a code coverage report for tests of a single project in multiple formats.
+          -->
           <execution>
             <id>default-report</id>
             <phase>prepare-package</phase>
@@ -64,6 +77,9 @@
               <goal>report</goal>
             </goals>
           </execution>
+          <!--
+            Checks that the code coverage metrics are being met.
+          -->
           <execution>
             <id>default-check</id>
             <goals>
@@ -77,7 +93,7 @@
                     <limit implementation="org.jacoco.report.check.Limit">
                       <counter>COMPLEXITY</counter>
                       <value>COVEREDRATIO</value>
-                      <minimum>0.6</minimum>
+                      <minimum>${jacoco.complexity.minimum}</minimum>
                     </limit>
                   </limits>
                 </rule>

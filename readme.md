@@ -67,7 +67,8 @@ POST / PUT Example JSON payload
 ```
 
 ### Health-Checks
-N/A
+Example health check
+`GET /actuator/health           #Returns JSON {"status":"UP"} and status 200 OK`
 
 ### Database 
 N/A

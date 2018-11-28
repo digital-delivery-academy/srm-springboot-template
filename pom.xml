@@ -15,9 +15,9 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <java.version>1.8</java.version>
+    <java.version>1.10</java.version>
     <jacoco.version>0.8.2</jacoco.version>
-    <jacoco.complexity.minimum>90%</jacoco.complexity.minimum>
+    <jacoco.complexity.minimum>0.90</jacoco.complexity.minimum>
   </properties>
 
   <parent>

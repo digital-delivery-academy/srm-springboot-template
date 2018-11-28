@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /*
 
@@ -21,6 +23,8 @@ public class TemplateController {
     @Autowired
     private TemplateService templateService;
 
+    public static final Logger logger = LoggerFactory.getLogger(TemplateController.class);
+
     public TemplateController() {
     }
 
@@ -31,6 +35,7 @@ public class TemplateController {
 
     @PostMapping(value = "/")
     public ResponseEntity create(@RequestBody Template postBody) {
+        logger.info("Example Object created with ID: X");
         return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).body("POST Template Top");
     }
 

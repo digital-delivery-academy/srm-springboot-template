@@ -1,7 +1,7 @@
 # srm-template
 [![Build Status](https://travis-ci.com/digital-delivery-academy/srm-springboot-template.svg?token=xvGAAFxX7Kq22jyoY92y&branch=master)](https://travis-ci.com/digital-delivery-academy/srm-springboot-template) `Codacity Quality Report` `Codacy Coverage Report`
 
-A general overview of what `srm-template` does and how it communicates with other micro-services (eg: JSON) and external API's 
+`srm-template` Gives a good example on how to structure microservices with SpringBoot and Maven, cohort 2 projects will use this as a baseline for microservices. To get a blank version of this readme look at the [srm-coding-styles](https://github.com/digital-delivery-academy/srm-code-style/) under the readme directory.
 
 ## Contents
    - [Getting Started](#getting-started)
@@ -49,7 +49,7 @@ A server should deploy to the port set in `Application.Properties`
 
 ## Usage
 ### Endpoints
-Add a list of all the endpoints here with explanations for each one, if you have multiple entities create new sub-headings.
+#### Template
 ```http request
 GET  /     #Get all example entities stored in the microservice in JSON
 GET  /12   #Get example by ID in JSON (12 in this example)
@@ -57,9 +57,8 @@ POST /     #Post a new example entity (look at #Schema for more information)
 ```
 
 ### Schema
-Explain each entity in the program here, for this example there will only be the one, but for multiple you should add new sub-headers.
-#### Template payloads
-POST / PUT Example JSON payload
+#### Template
+POST Example JSON payload
 ```json
 {
   "exampleId" : 12
@@ -67,7 +66,8 @@ POST / PUT Example JSON payload
 ```
 
 ### Health-Checks
-N/A
+Example health check
+`GET /actuator/health           #Returns JSON {"status":"UP"} and status 200 OK`
 
 ### Database 
 N/A

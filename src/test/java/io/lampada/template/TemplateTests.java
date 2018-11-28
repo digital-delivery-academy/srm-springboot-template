@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class TemplateTests {
 
-    Template testTemplate;
+    private Template testTemplate;
 
     @Before
     public void setUp() {

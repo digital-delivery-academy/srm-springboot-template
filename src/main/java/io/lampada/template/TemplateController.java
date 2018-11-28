@@ -19,7 +19,7 @@ Contains routes for endpoints.
 public class TemplateController {
 
     @Autowired
-    TemplateService templateService;
+    private TemplateService templateService;
 
     public TemplateController() {
     }

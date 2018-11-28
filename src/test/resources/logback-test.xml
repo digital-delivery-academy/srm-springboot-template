@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Spring Test Logback is not governed by the production logging level and is preset to DEBUG.
+  The default logging level of the production Spring Logger is preset to INFO,
+  meaning that TRACE + DEBUG messages are not visible.
+-->
+<configuration>
+  <include resource="org/springframework/boot/logging/logback/base.xml"/>
+  <logger name="org.springframework" level="INFO"/>
+</configuration>

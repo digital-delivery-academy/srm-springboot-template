@@ -1,5 +1,6 @@
 package io.lampada;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -11,12 +12,19 @@ public class TemplateApplicationTests {
 
     @Test
     public void testMain() {
-        TemplateApplication.main(new String[]{
-            // Should start Spring Boot, but should not run as a web-application and should not
-            // start an embedded web-server.
-            "--spring.main.web-application-type=NONE",
-            "--spring.main.banner-mode=OFF"
-        });
+        Exception exTest = null;
+        try {
+            TemplateApplication.main(new String[]{
+                // Should start Spring Boot, but should not run as a web-application and should not
+                // start an embedded web-server.
+                "--spring.main.web-application-type=NONE",
+                "--spring.main.banner-mode=OFF"
+            });
+        } catch (Exception e) {
+            Assert.fail(e.toString());
+            exTest = e;
+        }
+        Assert.assertNull(exTest);
     }
 
 }

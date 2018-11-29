@@ -25,9 +25,6 @@ public class TemplateController {
 
     public static final Logger logger = LoggerFactory.getLogger(TemplateController.class);
 
-    public TemplateController() {
-    }
-
     @GetMapping(value = "/")
     public ResponseEntity getAll() {
         return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).body("GET Template Top");

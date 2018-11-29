@@ -21,9 +21,6 @@ public class TemplateService {
 
     public static final Logger logger = LoggerFactory.getLogger(TemplateService.class);
 
-    public TemplateService() {
-
-    }
 
     public Template saveTemplate(int id, Template templateToAdd) {
         templateRepository.saveTemplate(id, templateToAdd);

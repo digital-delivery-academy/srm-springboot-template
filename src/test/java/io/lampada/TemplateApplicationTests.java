@@ -21,8 +21,8 @@ public class TemplateApplicationTests {
                 "--spring.main.banner-mode=OFF"
             });
         } catch (Exception e) {
-            Assert.fail(e.toString());
             exTest = e;
+            Assert.fail(e.toString());
         }
         Assert.assertNull(exTest);
     }

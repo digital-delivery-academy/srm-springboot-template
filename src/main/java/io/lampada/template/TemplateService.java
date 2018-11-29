@@ -1,6 +1,8 @@
 package io.lampada.template;
 
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,12 +19,16 @@ public class TemplateService {
     @Autowired
     private TemplateRepository templateRepository;
 
+    public static final Logger logger = LoggerFactory.getLogger(TemplateService.class);
+
     public TemplateService() {
 
     }
 
     public Template saveTemplate(int id, Template templateToAdd) {
         templateRepository.saveTemplate(id, templateToAdd);
+        logger.info("Template has been saved with the ID number " + id);
+
         return templateToAdd;
     }
 

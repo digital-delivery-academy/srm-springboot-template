@@ -33,10 +33,7 @@ public class TemplateControllerTests {
         ResponseEntity<String> response = this.restTemplate
             .getForEntity("http://localhost:" + port + "/", String.class);
 
-        HttpStatus expected = response.getStatusCode();
-        HttpStatus actual = HttpStatus.OK;
-
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals("GET to / did not return OK", HttpStatus.OK, response.getStatusCode());
     }
 
     @Test
@@ -44,29 +41,25 @@ public class TemplateControllerTests {
         ResponseEntity<String> response = this.restTemplate
             .getForEntity("http://localhost:" + port + "/1", String.class);
 
-        HttpStatus expected = response.getStatusCode();
-        HttpStatus actual = HttpStatus.NOT_IMPLEMENTED;
-
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals("GET to / with a parameter did not return NOT IMPLEMENTED",
+            HttpStatus.NOT_IMPLEMENTED, response.getStatusCode());
     }
 
     @Test
     public void postShouldReturnNotImplemented() {
-        HttpEntity<Template> request = new HttpEntity<>(new Template());
         ResponseEntity<String> response = this.restTemplate
-            .postForEntity("http://localhost:" + port + "/", request, String.class);
+            .postForEntity("http://localhost:" + port + "/", new HttpEntity<>(new Template()),
+                String.class);
 
-        HttpStatus expected = response.getStatusCode();
-        HttpStatus actual = HttpStatus.NOT_IMPLEMENTED;
-
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals("POST to / did not return NOT IMPLEMENTED", HttpStatus.NOT_IMPLEMENTED,
+            response.getStatusCode());
 
         /*
         Sample code where POST creates from a bean and returns a URI:
 
         HttpEntity<Foo> request = new HttpEntity<>(new Foo("bar"));
         URI location = restTemplate.postForLocation(fooResourceUrl, request);
-        assertThat(location, notNullValue());
+        Assert.assertNotNull(location);
         */
     }
 

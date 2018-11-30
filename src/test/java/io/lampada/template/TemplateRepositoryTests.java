@@ -61,12 +61,6 @@ public class TemplateRepositoryTests {
     }
 
     @Test
-    public void getSizeOfRepositoryShouldBeSizeZero() {
-        Assert.assertEquals("getSizeOfRepository did not report 0", 0,
-            templateRepository.getSizeOfRepository());
-    }
-
-    @Test
     public void getByIdShouldReturnTemplateOnValidId() {
         Template testTemplate1 = new Template();
         Template testTemplate2 = new Template();

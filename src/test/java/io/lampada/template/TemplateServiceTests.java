@@ -34,22 +34,6 @@ public class TemplateServiceTests {
     }
 
     @Test
-    public void getSizeOfRepositoryShouldReturnZeroIfSizeIsZero() {
-        Assert.assertEquals("Size of repository was not 0", 0, templateService
-            .getSizeOfRepository());
-    }
-
-    @Test
-    public void getSizeOfRepositoryShouldNotBeZeroIfNotEmpty() {
-        Template testTemplate = new Template();
-
-        templateService.saveTemplate(testTemplate);
-
-        Assert.assertEquals("Size of repository was not 1", 1, templateService
-            .getSizeOfRepository());
-    }
-
-    @Test
     public void getAllShouldReturnMultipleTemplates() {
         Template testTemplate1 = new Template();
         Template testTemplate2 = new Template();

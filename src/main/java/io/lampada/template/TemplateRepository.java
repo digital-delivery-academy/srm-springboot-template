@@ -42,8 +42,4 @@ public class TemplateRepository {
         return new ArrayList<Template>(templates.values());
     }
 
-    public int getSizeOfRepository() {
-        return templates.size();
-    }
-
 }

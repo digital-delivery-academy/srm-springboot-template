@@ -1,8 +1,6 @@
 package io.lampada.template;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,13 +20,8 @@ public class TemplateRepositoryTests {
 
     @Test
     public void constructorShouldCreateEmptyHashmap() {
-        Map<Integer, Template> hashMapTemplate = new HashMap<>();
-        TemplateRepository exampleRepository = templateRepository;
-
-        int actual = exampleRepository.getAll().size();
-        int expected = hashMapTemplate.size();
-
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals("templateRepository was not empty/constructed", 0,
+            templateRepository.getAll().size());
     }
 
     @Test
@@ -39,7 +32,7 @@ public class TemplateRepositoryTests {
         int expected = 1;
         int actual = templateRepository.getAll().size();
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals("Size of repository was not 1", expected, actual);
     }
 
     @Test
@@ -52,7 +45,7 @@ public class TemplateRepositoryTests {
 
         List<Template> actual = templateRepository.getAll();
 
-        if (!(actual.contains(testTemplate1) && actual.contains(testTemplate2))) {
+        if (!actual.contains(testTemplate1) || !actual.contains(testTemplate2)) {
             Assert.fail("Templates have not been found");
         }
     }
@@ -62,7 +55,7 @@ public class TemplateRepositoryTests {
         int expected = 0;
         int actual = templateRepository.getSizeOfRepository();
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals("getSizeOfRepository did not report 0", expected, actual);
     }
 
     @Test
@@ -76,14 +69,13 @@ public class TemplateRepositoryTests {
         Template expected = testTemplate2;
         Template actual = templateRepository.getById(2);
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals("Saved template with ID 2 was not returned", expected, actual);
     }
 
     @Test
     public void getByIdShouldReturnNullForInvalidId() {
-        Template expected = null;
-        Template actual = templateRepository.getById(118118);
-        Assert.assertEquals(expected, actual);
+        Assert.assertNull("getById didn't return null for an ID that didn't exist",
+            templateRepository.getById(118118));
     }
 
 }

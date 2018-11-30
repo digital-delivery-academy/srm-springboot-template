@@ -18,12 +18,13 @@ public class TemplateRepository {
 
     private Map<Integer, Template> templates;
 
-
     public TemplateRepository() {
         templates = new HashMap<>();
     }
 
-    public Template saveTemplate(int id, Template templateToAdd) {
+    public Template saveTemplate(Template templateToAdd) {
+        int id = templates.size() + 1;
+
         // Put returns the previous value associated with key, or null if there was no mapping for key.
         templates.put(id, templateToAdd);
         return templateToAdd;

@@ -33,7 +33,8 @@ public class TemplateControllerTests {
         ResponseEntity<String> response = this.restTemplate
             .getForEntity("http://localhost:" + port + "/", String.class);
 
-        Assert.assertEquals("GET to / did not return OK", HttpStatus.OK, response.getStatusCode());
+        Assert.assertEquals("GET to / did not return OK", HttpStatus.OK, response
+            .getStatusCode());
     }
 
     @Test
@@ -51,8 +52,8 @@ public class TemplateControllerTests {
             .postForEntity("http://localhost:" + port + "/", new HttpEntity<>(new Template()),
                 String.class);
 
-        Assert.assertEquals("POST to / did not return NOT IMPLEMENTED", HttpStatus.NOT_IMPLEMENTED,
-            response.getStatusCode());
+        Assert.assertEquals("POST to / did not return NOT IMPLEMENTED", HttpStatus
+            .NOT_IMPLEMENTED, response.getStatusCode());
 
         /*
         Sample code where POST creates from a bean and returns a URI:
@@ -64,7 +65,7 @@ public class TemplateControllerTests {
     }
 
     @Test
-    public void sendingNullBodyToPostShouldNotThrowException(){
+    public void sendingNullBodyToPostShouldNotThrowException() {
         Template nullTemplate = null;
         HttpEntity<Template> request = new HttpEntity<>(nullTemplate);
         ResponseEntity<String> response = this.restTemplate
@@ -72,8 +73,7 @@ public class TemplateControllerTests {
 
         Assert.assertEquals(
             "Sending a null body should not throw an exception as that would destroy the "
-                + "thread on the server",
-            HttpStatus.UNSUPPORTED_MEDIA_TYPE,
+                + "thread on the server", HttpStatus.UNSUPPORTED_MEDIA_TYPE,
             response.getStatusCode());
     }
 

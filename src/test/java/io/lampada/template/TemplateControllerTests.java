@@ -76,20 +76,5 @@ public class TemplateControllerTests {
                 + "thread on the server", HttpStatus.UNSUPPORTED_MEDIA_TYPE,
             response.getStatusCode());
     }
-
-    @Test
-    public void sendingNullIdToPostShouldNotThrowException(){
-        Template nullIdTemplate = new Template();
-        nullIdTemplate.setId(null);
-
-        HttpEntity<Template> request = new HttpEntity<>(nullIdTemplate);
-        ResponseEntity<String> response = this.restTemplate
-            .postForEntity("http://localhost:" + port + "/", request, String.class);
-
-        Assert.assertEquals(
-            "A null ID should work as expected as the ID is set inside the micro-service",
-            HttpStatus.NOT_IMPLEMENTED,
-            response.getStatusCode());
-    }
-
+    
 }

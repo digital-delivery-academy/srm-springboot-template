@@ -18,7 +18,7 @@ public class TemplateTests {
     public void getIdShouldReturnId() {
         testTemplate.setId(1);
 
-        Assert.assertEquals((Integer) 1, testTemplate.getId());
+        Assert.assertEquals("Id was not 1", (Integer) 1, testTemplate.getId());
     }
 
     @Test
@@ -28,7 +28,7 @@ public class TemplateTests {
         Field field = testTemplate.getClass().getDeclaredField("Id");
         field.setAccessible(true);
 
-        Assert.assertEquals(1, field.get(testTemplate));
+        Assert.assertEquals("Id was not 1", 1, field.get(testTemplate));
     }
 
 }

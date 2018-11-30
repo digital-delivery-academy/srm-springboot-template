@@ -29,10 +29,14 @@ public class TemplateRepositoryTests {
         Template testTemplate = new Template();
         templateRepository.saveTemplate(testTemplate);
 
-        int expected = 1;
-        int actual = templateRepository.getAll().size();
+        Assert.assertEquals("Size of repository was not 1", 1,
+            templateRepository.getAll().size());
+    }
 
-        Assert.assertEquals("Size of repository was not 1", expected, actual);
+    @Test
+    public void saveTemplateShouldReturnNullIfANullTemplateIsSaved() {
+        Assert.assertNull("Did not return null", templateRepository
+            .saveTemplate(null));
     }
 
     @Test
@@ -51,11 +55,15 @@ public class TemplateRepositoryTests {
     }
 
     @Test
-    public void getSizeOfRepositoryShouldBeSizeZero() {
-        int expected = 0;
-        int actual = templateRepository.getSizeOfRepository();
+    public void getAllShouldReturnEmptyListIfRepositoryIsEmpty() {
+        Assert.assertEquals("Size of repository was not 0", 0, templateRepository
+            .getAll().size());
+    }
 
-        Assert.assertEquals("getSizeOfRepository did not report 0", expected, actual);
+    @Test
+    public void getSizeOfRepositoryShouldBeSizeZero() {
+        Assert.assertEquals("getSizeOfRepository did not report 0", 0,
+            templateRepository.getSizeOfRepository());
     }
 
     @Test
@@ -66,10 +74,8 @@ public class TemplateRepositoryTests {
         templateRepository.saveTemplate(testTemplate1);
         templateRepository.saveTemplate(testTemplate2);
 
-        Template expected = testTemplate2;
-        Template actual = templateRepository.getById(2);
-
-        Assert.assertEquals("Saved template with ID 2 was not returned", expected, actual);
+        Assert.assertEquals("Saved template with ID 2 was not returned", testTemplate2,
+            templateRepository.getById(2));
     }
 
     @Test

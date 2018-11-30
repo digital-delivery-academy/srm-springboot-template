@@ -34,7 +34,7 @@ public class TemplateRepositoryTests {
     @Test
     public void saveTemplateShouldIncreaseSizeOfRepositoryByOne() {
         Template testTemplate = new Template();
-        templateRepository.saveTemplate(0, testTemplate);
+        templateRepository.saveTemplate(testTemplate);
 
         int expected = 1;
         int actual = templateRepository.getAll().size();
@@ -47,8 +47,8 @@ public class TemplateRepositoryTests {
         Template testTemplate1 = new Template();
         Template testTemplate2 = new Template();
 
-        templateRepository.saveTemplate(0, testTemplate1);
-        templateRepository.saveTemplate(1, testTemplate2);
+        templateRepository.saveTemplate(testTemplate1);
+        templateRepository.saveTemplate(testTemplate2);
 
         List<Template> actual = templateRepository.getAll();
 
@@ -70,11 +70,11 @@ public class TemplateRepositoryTests {
         Template testTemplate1 = new Template();
         Template testTemplate2 = new Template();
 
-        templateRepository.saveTemplate(0, testTemplate1);
-        templateRepository.saveTemplate(1, testTemplate2);
+        templateRepository.saveTemplate(testTemplate1);
+        templateRepository.saveTemplate(testTemplate2);
 
         Template expected = testTemplate2;
-        Template actual = templateRepository.getById(1);
+        Template actual = templateRepository.getById(2);
 
         Assert.assertEquals(expected, actual);
     }

@@ -19,12 +19,8 @@ public class TemplateService {
     @Autowired
     private TemplateRepository templateRepository;
 
-    public static final Logger logger = LoggerFactory.getLogger(TemplateService.class);
-
-
-    public Template saveTemplate(int id, Template templateToAdd) {
-        templateRepository.saveTemplate(id, templateToAdd);
-        logger.info("Template has been saved with the ID number " + id);
+    public Template saveTemplate(Template templateToAdd) {
+        templateRepository.saveTemplate(templateToAdd);
 
         return templateToAdd;
     }

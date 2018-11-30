@@ -21,21 +21,7 @@ public class TemplateServiceTests {
     @Test
     public void saveTemplateShouldIncreaseSizeOfRepositoryByOne() {
         Template testTemplate = new Template();
-        templateService.saveTemplate(0, testTemplate);
-
-        int expected = 1;
-        int actual = templateService.getAll().size();
-
-        Assert.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void saveTemplateWithSameIdShouldNotAdd() {
-        Template testTemplate = new Template();
-        templateService.saveTemplate(0, testTemplate);
-
-        Template testNotAddedTemplate = new Template();
-        templateService.saveTemplate(0, testNotAddedTemplate);
+        templateService.saveTemplate(testTemplate);
 
         int expected = 1;
         int actual = templateService.getAll().size();
@@ -56,8 +42,8 @@ public class TemplateServiceTests {
         Template testTemplate1 = new Template();
         Template testTemplate2 = new Template();
 
-        templateService.saveTemplate(0, testTemplate1);
-        templateService.saveTemplate(1, testTemplate2);
+        templateService.saveTemplate(testTemplate1);
+        templateService.saveTemplate(testTemplate2);
 
         List<Template> actual = templateService.getAll();
 
@@ -71,11 +57,11 @@ public class TemplateServiceTests {
         Template testTemplate1 = new Template();
         Template testTemplate2 = new Template();
 
-        templateService.saveTemplate(0, testTemplate1);
-        templateService.saveTemplate(1, testTemplate2);
+        templateService.saveTemplate(testTemplate1);
+        templateService.saveTemplate(testTemplate2);
 
         Template expected = testTemplate2;
-        Template actual = templateService.getById(1);
+        Template actual = templateService.getById(2);
 
         Assert.assertEquals(expected, actual);
     }

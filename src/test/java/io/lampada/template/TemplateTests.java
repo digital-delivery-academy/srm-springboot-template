@@ -15,26 +15,20 @@ public class TemplateTests {
     }
 
     @Test
-    public void getExampleIdShouldReturnExampleId() {
-        testTemplate.setExampleId(1);
+    public void getIdShouldReturnId() {
+        testTemplate.setId(1);
 
-        int expected = 1;
-        int actual = testTemplate.getExampleId();
-
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals((Integer) 1, testTemplate.getId());
     }
 
     @Test
-    public void setExampleIdShouldSetExampleId()
+    public void setIdShouldSetId()
         throws NoSuchFieldException, IllegalAccessException {
-        testTemplate.setExampleId(1);
-        Field field = testTemplate.getClass().getDeclaredField("exampleId");
+        testTemplate.setId(1);
+        Field field = testTemplate.getClass().getDeclaredField("Id");
         field.setAccessible(true);
 
-        int expected = 1;
-        Object actual = field.get(testTemplate);
-
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(1, field.get(testTemplate));
     }
 
 }

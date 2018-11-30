@@ -42,8 +42,8 @@
  4. Run configuration
 
 ### Deployment
- 1. Run `mvn package` on project
- 2. Launch Jar file located in `/target/` with `java -jar "jarName.jar"`
+ 1. Run `mvn clean install` on project
+ 2. Run`java -jar "/target/template-0.0.1-SNAPSHOT.jar"` to launch the server
   
 A server should deploy to the port set in `Application.Properties`
 

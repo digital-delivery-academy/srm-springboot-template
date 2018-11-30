@@ -23,18 +23,28 @@ public class TemplateServiceTests {
         Template testTemplate = new Template();
         templateService.saveTemplate(testTemplate);
 
-        int expected = 1;
-        int actual = templateService.getAll().size();
-
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals("Size of repository was not 1", 1, templateService.getAll().size());
     }
 
     @Test
-    public void getSizeOfRepositoryShouldBeSizeZero() {
-        int expected = 0;
-        int actual = templateService.getSizeOfRepository();
+    public void saveTemplateShouldReturnNullIfANullTemplateIsSaved() {
+        Template testTemplate = null;
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertNull("Did not return null", templateService.saveTemplate(testTemplate));
+    }
+
+    @Test
+    public void getSizeOfRepositoryShouldReturnZeroIfSizeIsZero() {
+        Assert.assertEquals("Size of repository was not 0", 0, templateService.getSizeOfRepository());
+    }
+
+    @Test
+    public void getSizeOfRepositoryShouldNotBeZeroIfNotEmpty() {
+        Template testTemplate = new Template();
+
+        templateService.saveTemplate(testTemplate);
+
+        Assert.assertEquals("Size of repository was not 1",1, templateService.getSizeOfRepository());
     }
 
     @Test
@@ -53,6 +63,11 @@ public class TemplateServiceTests {
     }
 
     @Test
+    public void getAllShouldReturnEmptyListIfRepositoryIsEmpty() {
+        Assert.assertEquals("Size of repository was not 0", 0, templateService.getAll().size());
+    }
+
+    @Test
     public void getByIdShouldReturnTemplateOnValidId() {
         Template testTemplate1 = new Template();
         Template testTemplate2 = new Template();
@@ -60,17 +75,12 @@ public class TemplateServiceTests {
         templateService.saveTemplate(testTemplate1);
         templateService.saveTemplate(testTemplate2);
 
-        Template expected = testTemplate2;
-        Template actual = templateService.getById(2);
-
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals("Saved template with ID 2 was not returned", testTemplate2, templateService.getById(2));
     }
 
     @Test
     public void getByIdShouldReturnNullForInvalidId() {
-        Template expected = null;
-        Template actual = templateService.getById(118118);
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals("Did not return null",null, templateService.getById(118118));
     }
 
 }

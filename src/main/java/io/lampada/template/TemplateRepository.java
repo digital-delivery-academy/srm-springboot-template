@@ -23,11 +23,14 @@ public class TemplateRepository {
     }
 
     public Template saveTemplate(Template templateToAdd) {
-        int id = templates.size() + 1;
+        if (templateToAdd!=null) {
+            int id = templates.size() + 1;
+            templateToAdd.setId(id);
 
-        // Put returns the previous value associated with key, or null if there was no mapping for key.
-        templates.put(id, templateToAdd);
-        return templateToAdd;
+            // Put returns the previous value associated with key, or null if there was no mapping for key.
+            templates.put(id, templateToAdd);
+            return templateToAdd;
+        } return null;
     }
 
     public Template getById(int id) {

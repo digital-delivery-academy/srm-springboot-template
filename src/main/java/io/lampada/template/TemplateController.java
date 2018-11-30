@@ -36,8 +36,6 @@ public class TemplateController {
     @PostMapping(value = "/")
     public ResponseEntity create(@RequestBody Template postBody) {
         logger.info("POST received with Id:" + postBody.getId());
-        // This is an example of what a log message would look like:
-        // logger.info("Created new Object with ID:" + postBody.getId());
         return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).body("POST Template Top");
     }
 

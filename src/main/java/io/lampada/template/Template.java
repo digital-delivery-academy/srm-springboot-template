@@ -12,13 +12,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class Template {
 
-    private int Id;
+    private Integer Id;
 
     public Integer getId() {
         return Id;
     }
 
-    public void setId(int Id) {
+    public void setId(Integer Id) {
         this.Id = Id;
     }
 

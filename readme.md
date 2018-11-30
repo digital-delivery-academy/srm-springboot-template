@@ -22,6 +22,7 @@
 #### Generic
  1. `git clone git@github.com:digital-delivery-academy/srm-springboot-template.git`
  2. `mvn clean package`
+ 3. Run`java -jar "/target/template-0.0.1-SNAPSHOT.jar"` to launch the server
 
 #### In IntelliJ
  1. Clone [master](https://github.com/digital-delivery-academy/srm-srm-template) and run `mvn clean install` in its directory

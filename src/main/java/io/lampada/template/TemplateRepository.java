@@ -16,29 +16,29 @@ It can be embedded or remote, but it should act the same way no matter what.
 @Repository
 public class TemplateRepository {
 
-    private Map<Integer, Template> templateMap;
+    private Map<Integer, Template> templates;
 
 
     public TemplateRepository() {
-        templateMap = new HashMap<>();
+        templates = new HashMap<>();
     }
 
     public Template saveTemplate(int id, Template templateToAdd) {
         // Put returns the previous value associated with key, or null if there was no mapping for key.
-        templateMap.put(id, templateToAdd);
+        templates.put(id, templateToAdd);
         return templateToAdd;
     }
 
     public Template getById(int id) {
-        return templateMap.get(id);
+        return templates.get(id);
     }
 
     public List<Template> getAll() {
-        return new ArrayList<Template>(templateMap.values());
+        return new ArrayList<Template>(templates.values());
     }
 
     public int getSizeOfRepository() {
-        return templateMap.size();
+        return templates.size();
     }
 
 }

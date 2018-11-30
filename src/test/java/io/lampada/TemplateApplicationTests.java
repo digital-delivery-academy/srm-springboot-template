@@ -6,8 +6,8 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-// Drops @SpringBootTest and the empty test method contextLoads(), which run Spring Boot
-// Test class added ONLY to cover main() invocation not covered by application tests
+// Drops @SpringBootTest and the empty test method contextLoads(), which run Spring Boot.
+// Test class added ONLY to cover main() invocation not covered by application tests.
 public class TemplateApplicationTests {
 
     @Test
@@ -20,8 +20,8 @@ public class TemplateApplicationTests {
                 "--spring.main.banner-mode=OFF"
             });
         } catch (Exception e) {
-            // Added as "JUnit tests should include assert() or fail()"
-            // JUnit tests would fail if they throw an exception,
+            // Added as "JUnit tests should include assert() or fail()".
+            // JUnit tests would fail if Spring Boot throws an exception,
             // e.g. IllegalStateException, ConnectorStartFailedException, etc.
             Assert.fail("Failed with exception " + e.toString());
         }

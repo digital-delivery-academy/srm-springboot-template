@@ -70,4 +70,20 @@ public class TemplateControllerTests {
         */
     }
 
+    @Test
+    public void sendingNullBodyToPostShouldNotThrowException(){
+        Template nullTemplate = null;
+        HttpEntity<Template> request = new HttpEntity<>(nullTemplate);
+        ResponseEntity<String> response = this.restTemplate
+            .postForEntity("http://localhost:" + port + "/", request, String.class);
+
+        HttpStatus expected = response.getStatusCode();
+        HttpStatus actual = HttpStatus.UNSUPPORTED_MEDIA_TYPE;
+
+        Assert.assertEquals(
+            "Sending a null body should not throw an exception as that would destroy the thread on the server",
+            expected,
+            actual);
+    }
+
 }

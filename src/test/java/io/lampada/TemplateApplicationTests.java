@@ -12,7 +12,6 @@ public class TemplateApplicationTests {
 
     @Test
     public void testMain() {
-        Exception exTest = null;
         try {
             TemplateApplication.main(new String[]{
                 // Should start Spring Boot, but should not run as a web-application and should not
@@ -21,10 +20,12 @@ public class TemplateApplicationTests {
                 "--spring.main.banner-mode=OFF"
             });
         } catch (Exception e) {
-            exTest = e;
-            Assert.fail(e.toString());
+            // Added as "JUnit tests should include assert() or fail()"
+            // JUnit tests would fail if they throw an exception,
+            // e.g. IllegalStateException, ConnectorStartFailedException, etc.
+            Assert.fail("Failed with exception " + e.toString());
         }
-        Assert.assertNull(exTest);
+        // This is the expected path.
     }
 
 }

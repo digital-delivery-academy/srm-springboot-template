@@ -51,9 +51,10 @@ A server should deploy to the port set in `Application.Properties`
 ### Endpoints
 #### Template Endpoints
 ```http request
-GET  /     #Get all example entities stored in the microservice in JSON
-GET  /12   #Get example by ID in JSON (12 in this example)
-POST /     #Post a new example entity (look at #Schema for more information)
+GET  /          #Get all example entities stored in the microservice in JSON
+GET  /12        #Get example by ID in JSON (12 in this example)
+GET  /health    #Returns health-checks, i.e. JSON {"status":"UP"} and status 200 OK
+POST /          #Post a new example entity (look at #Schema for more information)
 ```
 
 ### Schema

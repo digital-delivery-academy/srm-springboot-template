@@ -24,10 +24,10 @@ public class TemplateController {
     @Autowired
     private TemplateService templateService;
 
-    public static final Logger logger = LoggerFactory.getLogger(TemplateController.class);
+    private static final Logger logger = LoggerFactory.getLogger(TemplateController.class);
 
     @GetMapping(value = "/")
-    public Object allEvents() {
+    public ResponseEntity<List<Template>> allEvents() {
         List<Template> colEvents = templateService.getAll();
         // As Http Status NO_CONTENT cannot also return content even zero-size.
         return ResponseEntity.ok(colEvents);
@@ -35,8 +35,8 @@ public class TemplateController {
 
     @PostMapping(value = "/")
     public ResponseEntity create(@RequestBody Template postBody) {
-        // This is an example of what a log message would look like
-        logger.info("Created new Object with ID:" + postBody.getExampleId());
+        // This is an example of what a log message would look like:
+        //logger.info("Created new Object with ID:" + createdTemplate.getId());
         return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).body("POST Template Top");
     }
 
@@ -44,5 +44,4 @@ public class TemplateController {
     public ResponseEntity getWithParameter(@PathVariable Object parameter) {
         return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).body("GET Template Parameter");
     }
-
 }

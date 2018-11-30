@@ -18,7 +18,7 @@ public class TemplateTests {
     public void getIdShouldReturnId() {
         testTemplate.setId(1);
 
-        Assert.assertEquals("Id was not 1", (Integer) 1, testTemplate.getId());
+        Assert.assertEquals("Id was not 1", 1, testTemplate.getId());
     }
 
     @Test

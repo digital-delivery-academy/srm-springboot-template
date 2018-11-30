@@ -18,7 +18,7 @@ public class Template {
         return Id;
     }
 
-    public void setId(Integer Id) {
+    public void setId(int Id) {
         this.Id = Id;
     }
 
